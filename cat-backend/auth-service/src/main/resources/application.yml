@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: auth-service
+  main:
+    allow-circular-references: true
+  devtools:
+    livereload:
+      port: 35732
   cloud:
     nacos:
       discovery:
@@ -19,3 +24,4 @@ spring:
     url: jdbc:mysql://localhost:33060/cloud_test?serverTimezone=UTC
     username: root
     password: RrOoOoTt!@#123.
+debug: true

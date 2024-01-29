@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 /**
  * 网关全局异常处理
  *
- * @author javadaily
+ * @author qcqcqc
  */
 @Slf4j
 @Order(-1)
@@ -44,7 +44,11 @@ public class GlobalErrorWebExceptionHandler implements ErrorWebExceptionHandler 
             DataBufferFactory bufferFactory = response.bufferFactory();
             try {
                 //返回响应结果
-                return bufferFactory.wrap(objectMapper.writeValueAsBytes(ResultData.error(500, ex.getMessage())));
+                return bufferFactory.wrap(
+                        objectMapper.writeValueAsBytes(
+                                ResultData.error(500, ex.getMessage())
+                        )
+                );
             } catch (JsonProcessingException e) {
                 log.error("Error writing response", ex);
                 return bufferFactory.wrap(new byte[0]);

@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: test-service
+  devtools:
+    livereload:
+      port: 35733
   cloud:
     nacos:
       discovery:
