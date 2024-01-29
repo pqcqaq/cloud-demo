@@ -1,0 +1,22 @@
+# 应用名称
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+        # 如果是public就不用填写了
+        namespace:
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8001
+debug: true
