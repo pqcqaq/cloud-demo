@@ -1,13 +1,13 @@
 package online.zust.testservice.controller;
 
 import online.zust.common.entity.ResultData;
+import online.zust.common.utils.JWTUtils;
 import online.zust.testservice.entity.LoginParam;
 import online.zust.testservice.entity.RegisterParam;
 import online.zust.testservice.entity.User;
 import online.zust.testservice.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,5 +53,10 @@ public class TestController {
     @GetMapping("/testRefreshToken")
     public ResultData<String> testRefreshToken(@RequestParam String token) {
         return authService.refreshToken(token);
+    }
+
+    @GetMapping("/testVerifyTokenLocal")
+    public ResultData<User> testVerifyTokenLocal(@RequestParam String token) {
+        return ResultData.success(JWTUtils.getPlayLoad(token, User.class));
     }
 }

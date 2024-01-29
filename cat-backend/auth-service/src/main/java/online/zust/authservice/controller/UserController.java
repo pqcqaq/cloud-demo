@@ -6,7 +6,6 @@ import online.zust.authservice.entity.po.User;
 import online.zust.authservice.service.UserService;
 import online.zust.common.entity.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.web.bind.annotation.*;
 
 /**
