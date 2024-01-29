@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
+
     @GetMapping("/test")
     public ResultData<String> test() {
         return ResultData.success("test");
@@ -16,7 +17,7 @@ public class TestController {
 
     @GetMapping("/test2")
     public String test2() {
-        throw new RuntimeException("test2");
-//        return "test2";
+        throw new RuntimeException("test-exception");
     }
+
 }
