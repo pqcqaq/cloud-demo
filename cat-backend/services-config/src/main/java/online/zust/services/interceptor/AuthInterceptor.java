@@ -19,10 +19,10 @@ import java.io.IOException;
  */
 public class AuthInterceptor implements HandlerInterceptor {
 
-    private void writeResponse(HttpServletResponse response, String msg) throws IOException {
+    private void writeResponse(HttpServletResponse response, String msg, int code) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
         ObjectMapper objectMapper = new ObjectMapper();
-        ResultData<String> error = ResultData.error(500, msg);
+        ResultData<String> error = ResultData.error(code, msg);
         response.getWriter().write(objectMapper.writeValueAsString(error));
     }
 
@@ -43,7 +43,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         String serviceName = request.getHeader("service-name");
         // 如果jwt为空，或者service-name为空，或者service-name不是本服务名，返回false
         if (jwt == null && token == null) {
-            writeResponse(response, "jwt is null");
+            writeResponse(response, "未找到登录信息！", 404);
             return false;
         }
         if (serviceName == null) {
@@ -56,12 +56,12 @@ public class AuthInterceptor implements HandlerInterceptor {
             if (playLoad == null) {
                 playLoad = JWTUtils.getPlayLoad(token, User.class);
                 if (playLoad == null) {
-                    writeResponse(response, "jwt is invalid");
+                    writeResponse(response, "登录信息无效！", 403);
                     return false;
                 }
             }
         } catch (Exception e) {
-            writeResponse(response, e.getMessage());
+            writeResponse(response, e.getMessage(), 500);
             return false;
         }
         RequestHolder.setJwt(jwt == null ? token : jwt);
