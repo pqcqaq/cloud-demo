@@ -12,3 +12,6 @@ spring:
       port: 35751
   profiles:
     include: feign, mysql, nacos, spring, jwt, ribbon
+
+chain:
+  remote-address: localhost:8888

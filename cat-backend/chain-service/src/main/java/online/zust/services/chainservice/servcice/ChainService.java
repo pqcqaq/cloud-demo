@@ -1,7 +1,5 @@
 package online.zust.services.chainservice.servcice;
 
-import org.chainmaker.pb.config.ChainConfigOuterClass;
-
 /**
  * @author qcqcqc
  */
@@ -11,5 +9,5 @@ public interface ChainService {
      *
      * @return 链配置
      */
-    ChainConfigOuterClass.ChainConfig getChainConfig();
+    String getChainConfig();
 }
