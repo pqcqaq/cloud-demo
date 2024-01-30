@@ -62,7 +62,7 @@ public class JWTUtils {
             return objectMapper.readValue(info, clazz);
         } catch (Exception e) {
             logger.warning(e.getMessage());
-            return null;
+            throw new ServiceException(e.getMessage());
         }
     }
 

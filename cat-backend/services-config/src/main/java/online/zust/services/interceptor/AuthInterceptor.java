@@ -1,5 +1,7 @@
 package online.zust.services.interceptor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import online.zust.common.entity.ResultData;
 import online.zust.common.utils.JWTUtils;
 import online.zust.services.annotation.NoAuth;
 import online.zust.services.entity.User;
@@ -19,7 +21,9 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     private void writeResponse(HttpServletResponse response, String msg) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(msg);
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResultData<String> error = ResultData.error(500, msg);
+        response.getWriter().write(objectMapper.writeValueAsString(error));
     }
 
     @Override
@@ -46,13 +50,19 @@ public class AuthInterceptor implements HandlerInterceptor {
             serviceName = "__self";
         }
 
-        User playLoad = JWTUtils.getPlayLoad(jwt, User.class);
-        if (playLoad == null) {
-            playLoad = JWTUtils.getPlayLoad(token, User.class);
+        User playLoad;
+        try {
+            playLoad = JWTUtils.getPlayLoad(jwt, User.class);
             if (playLoad == null) {
-                writeResponse(response, "jwt is invalid");
-                return false;
+                playLoad = JWTUtils.getPlayLoad(token, User.class);
+                if (playLoad == null) {
+                    writeResponse(response, "jwt is invalid");
+                    return false;
+                }
             }
+        } catch (Exception e) {
+            writeResponse(response, e.getMessage());
+            return false;
         }
         RequestHolder.setJwt(jwt == null ? token : jwt);
         RequestHolder.setUser(playLoad);
