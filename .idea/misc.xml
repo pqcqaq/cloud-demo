@@ -14,6 +14,8 @@
         <option value="$PROJECT_DIR$/cat-backend/common-cloud/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/services-parent/services-config/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/services-config/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/feign-clients/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/demo-service/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

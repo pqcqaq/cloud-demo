@@ -20,6 +20,14 @@
             <groupId>online.zust</groupId>
             <artifactId>services-config</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--     feignClient   -->
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>feign-clients</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

@@ -3,10 +3,10 @@ package online.zust.services.testservice.controller;
 import online.zust.common.entity.ResultData;
 import online.zust.common.utils.JWTUtils;
 import online.zust.services.annotation.NoAuth;
-import online.zust.services.testservice.entity.LoginParam;
-import online.zust.services.testservice.entity.RegisterParam;
-import online.zust.services.testservice.entity.User;
-import online.zust.services.testservice.service.AuthService;
+import online.zust.services.feignclient.clients.AuthClient;
+import online.zust.services.feignclient.dto.LoginParams;
+import online.zust.services.feignclient.dto.RegisterParam;
+import online.zust.services.feignclient.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @NoAuth
 public class TestController {
     @Autowired
-    private AuthService authService;
+    private AuthClient authClient;
 
     @GetMapping("/test")
     public ResultData<String> test() {
@@ -36,25 +36,25 @@ public class TestController {
         RegisterParam registerParam = new RegisterParam();
         registerParam.setUsername("test");
         registerParam.setPassword("test");
-        return authService.register(registerParam);
+        return authClient.register(registerParam);
     }
 
     @GetMapping("/testLogin")
     public ResultData<String> testLogin() {
-        LoginParam loginParam = new LoginParam();
+        LoginParams loginParam = new LoginParams();
         loginParam.setUsername("test");
         loginParam.setPassword("test");
-        return authService.login(loginParam);
+        return authClient.login(loginParam);
     }
 
     @GetMapping("/testVerifyToken")
     public ResultData<User> testVerifyToken(@RequestParam String token) {
-        return authService.verifyToken(token);
+        return authClient.verifyToken(token);
     }
 
     @GetMapping("/testRefreshToken")
     public ResultData<String> testRefreshToken(@RequestParam String token) {
-        return authService.refreshToken(token);
+        return authClient.refreshToken(token);
     }
 
     @GetMapping("/testVerifyTokenLocal")
@@ -64,6 +64,6 @@ public class TestController {
 
     @GetMapping("/testJwtHeader")
     public ResultData<String> testJwtHeader(@RequestParam String jwt) {
-        return authService.testJwtHeader(jwt);
+        return authClient.testJwtHeader(jwt);
     }
 }

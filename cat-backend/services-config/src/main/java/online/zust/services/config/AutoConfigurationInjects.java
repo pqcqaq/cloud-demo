@@ -20,13 +20,13 @@ public class AutoConfigurationInjects {
     }
 
     @Bean
-    public FeignConfiguration feignConfiguration() {
-        return new FeignConfiguration();
+    public FeignRequestConfiguration feignRequestConfiguration() {
+        return new FeignRequestConfiguration();
     }
 
     @Bean
-    public FeignErrorDecoder feignErrorDecoder() {
-        return new FeignErrorDecoder();
+    public FeignResponseErrorDecoder feignResponseErrorDecoder() {
+        return new FeignResponseErrorDecoder();
     }
 
     @Bean

@@ -16,8 +16,14 @@ spring:
         username: nacos
         password: nacos
         server-addr: localhost:8848
-        # 如果是public就不用填写了
+        # 如果是public，就不用填了
         namespace:
+        metadata:
+          preserved.heart.beat.interval: 1000
+          preserved.heart.beat.timeout: 3000
+          preserved.ip.delete.timeout: 3000
+ribbon:
+  ServerListRefreshInterval: 3000
 
 # 应用服务 WEB 访问端口
 server:

@@ -16,12 +16,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Configuration
-public class FeignErrorDecoder extends ErrorDecoder.Default {
+public class FeignResponseErrorDecoder extends ErrorDecoder.Default {
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    private final Logger log = LoggerFactory.getLogger(FeignErrorDecoder.class);
+    private final Logger log = LoggerFactory.getLogger(FeignResponseErrorDecoder.class);
 
     @Override
     public Exception decode(String methodKey, Response response) {

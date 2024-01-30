@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!--  服务  -->
-    <artifactId>auth-service</artifactId>
+    <artifactId>demo-service</artifactId>
     <!--  版本  -->
     <version>1.0-SNAPSHOT</version>
     <!--  名称  -->
-    <name>auth-service</name>
+    <name>demo-service</name>
     <!--  描述  -->
-    <description>auth-service</description>
+    <description>demo-service</description>
 
     <parent>
         <groupId>online.zust</groupId>
@@ -24,11 +24,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!--    SpringSecurity    -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
         <!--    服务配置    -->
         <dependency>
             <groupId>online.zust</groupId>

@@ -1,4 +1,4 @@
-package online.zust.services.testservice.entity;
+package online.zust.services.feignclient.dto;
 
 import lombok.Data;
 
@@ -6,8 +6,7 @@ import lombok.Data;
  * @author qcqcqc
  */
 @Data
-public class RegisterParam {
+public class LoginParams {
     private String username;
     private String password;
-    private String email;
 }

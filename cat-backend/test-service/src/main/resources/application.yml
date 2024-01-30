@@ -3,7 +3,7 @@ server:
 # 应用名称
 spring:
   profiles:
-    include: feign, mysql, nacos, spring, jwt
+    include: feign, mysql, nacos, spring, jwt, ribbon
   application:
     name: test-service
   devtools:

@@ -1,4 +1,4 @@
-package online.zust.services.testservice.entity;
+package online.zust.services.feignclient.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

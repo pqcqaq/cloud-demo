@@ -10,3 +10,7 @@ spring:
         server-addr: localhost:8848
         # 如果是public，就不用填了
         namespace:
+        metadata:
+          preserved.heart.beat.interval: 1000
+          preserved.heart.beat.timeout: 3000
+          preserved.ip.delete.timeout: 3000

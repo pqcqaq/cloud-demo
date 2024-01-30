@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author qcqcqc
  */
 @Component
-public class FeignConfiguration implements RequestInterceptor {
+public class FeignRequestConfiguration implements RequestInterceptor {
 
     @Value("${spring.application.name}")
     private String serviceName;

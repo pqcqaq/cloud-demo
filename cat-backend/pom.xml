@@ -98,11 +98,9 @@
     </properties>
     <modules>
         <module>gateway</module>
-        <module>test-service</module>
-        <module>auth-service</module>
         <module>services-parent</module>
         <module>common-cloud</module>
-        <module>services-config</module>
+        <module>feign-clients</module>
     </modules>
 
 </project>

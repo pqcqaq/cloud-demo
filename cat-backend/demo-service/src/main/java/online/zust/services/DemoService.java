@@ -1,4 +1,4 @@
-package online.zust.services.authservice;
+package online.zust.services;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableFeignClients(basePackages = "online.zust.services.feignclient")
-public class AuthServiceApplication {
+public class DemoService {
     public static void main(String[] args) {
-        SpringApplication.run(AuthServiceApplication.class, args);
+        SpringApplication.run(DemoService.class, args);
     }
 }

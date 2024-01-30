@@ -1,13 +1,13 @@
 server:
-  port: 8079
+  port: 8080
 # 应用名称
 spring:
   application:
-    name: auth-service
+    name: demo-service
   main:
     allow-circular-references: true
   devtools:
     livereload:
-      port: 35732
+      port: 35750
   profiles:
     include: feign, mysql, nacos, spring, jwt, ribbon
