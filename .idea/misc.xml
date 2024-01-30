@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/cat-backend/gateway/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/test-service/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/services-parent/src/main/java/online/zust/services/config/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common-entity/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common-cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/services-parent/services-config/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

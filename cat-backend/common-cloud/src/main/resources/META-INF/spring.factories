@@ -1,0 +1,4 @@
+## enable autoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  online.zust.common.constant.JwtConfig,\
+  online.zust.common.utils.JWTUtils

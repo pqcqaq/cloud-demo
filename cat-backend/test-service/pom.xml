@@ -14,6 +14,21 @@
         <relativePath>../services-parent/pom.xml</relativePath>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>services-parent</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--    服务配置    -->
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>services-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -31,7 +46,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>online.zust.testservice.TestServiceApplication</mainClass>
+                    <mainClass>online.zust.services.testservice.TestServiceApplication</mainClass>
                     <skip>false</skip>
                 </configuration>
                 <executions>

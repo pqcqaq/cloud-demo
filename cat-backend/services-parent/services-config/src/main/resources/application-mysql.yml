@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: mysql
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: defaultDataSource
+    url: jdbc:mysql://localhost:33060/cloud_test?serverTimezone=UTC
+    username: root
+    password: RrOoOoTt!@#123.

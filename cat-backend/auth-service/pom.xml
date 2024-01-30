@@ -29,6 +29,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>services-parent</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--    服务配置    -->
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>services-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,7 +61,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <!--         主类           -->
-                    <mainClass>online.zust.authservice.AuthServiceApplication</mainClass>
+                    <mainClass>online.zust.services.authservice.AuthServiceApplication</mainClass>
                     <skip>false</skip>
                 </configuration>
                 <executions>

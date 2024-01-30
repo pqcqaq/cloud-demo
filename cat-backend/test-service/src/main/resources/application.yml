@@ -2,23 +2,12 @@ server:
   port: 8081
 # 应用名称
 spring:
+  profiles:
+    include: spring, feign, nacos, mysql
   application:
     name: test-service
   devtools:
     livereload:
       port: 35733
-  cloud:
-    nacos:
-      discovery:
-        username: nacos
-        password: nacos
-        server-addr: localhost:8848
-        # 如果是public，就不用填了
-        namespace:
 
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    name: defaultDataSource
-    url: jdbc:mysql://localhost:33060/cloud_test?serverTimezone=UTC
-    username: root
-    password: RrOoOoTt!@#123.
+

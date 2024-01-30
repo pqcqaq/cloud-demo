@@ -18,8 +18,14 @@
     <dependencies>
         <dependency>
             <groupId>online.zust</groupId>
-            <artifactId>common-entity</artifactId>
+            <artifactId>common-cloud</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- 客户端负载均衡 -->
         <dependency>

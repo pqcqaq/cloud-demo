@@ -21,9 +21,10 @@
     </properties>
 
     <dependencies>
+        <!--    通用类    -->
         <dependency>
             <groupId>online.zust</groupId>
-            <artifactId>common-entity</artifactId>
+            <artifactId>common-cloud</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 客户端负载均衡 -->
@@ -104,11 +105,6 @@
         <!--            <artifactId>spring-boot-starter-security</artifactId>-->
         <!--        </dependency>-->
         <!--        jwtutils-->
-        <dependency>
-            <groupId>com.hanzoy</groupId>
-            <artifactId>utils</artifactId>
-            <version>2.2</version>
-        </dependency>
         <!--    校验依赖    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -129,12 +125,17 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-<!--        &lt;!&ndash;httpClient的依赖 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.github.openfeign</groupId>-->
-<!--            <artifactId>feign-httpclient</artifactId>-->
-<!--        </dependency>-->
+        <!--httpClient的依赖 -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+        </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -160,5 +161,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>
