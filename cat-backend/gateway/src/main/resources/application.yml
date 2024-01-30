@@ -1,0 +1,35 @@
+# 应用名称
+spring:
+  application:
+    name: gateway
+  devtools:
+    livereload:
+      port: 35731
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+        # 如果是public，就不用填了
+        namespace:
+        metadata:
+          preserved.heart.beat.interval: 1000
+          preserved.heart.beat.timeout: 3000
+          preserved.ip.delete.timeout: 3000
+ribbon:
+  ServerListRefreshInterval: 3000
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8001
+debug: true
+
+jwt:
+  secret: 238142CD-73BC-A379-082A-E76300DBBDEC
+  expire: 3600

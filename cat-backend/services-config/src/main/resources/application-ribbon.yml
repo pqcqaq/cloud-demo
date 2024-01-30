@@ -1,0 +1,6 @@
+spring:
+  config:
+    activate:
+      on-profile: ribbon
+ribbon:
+  ServerListRefreshInterval: 3000

@@ -1,0 +1,13 @@
+server:
+  port: 8081
+# 应用名称
+spring:
+  profiles:
+    include: feign, mysql, nacos, spring, jwt, ribbon
+  application:
+    name: test-service
+  devtools:
+    livereload:
+      port: 35733
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/test-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/services-parent/src/main/java/online/zust/services/config/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common-entity/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/common-cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/services-parent/services-config/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/services-config/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/feign-clients/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/demo-service/pom.xml" />
+      </list>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="graalvm-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

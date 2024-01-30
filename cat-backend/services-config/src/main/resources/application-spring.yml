@@ -1,0 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: spring
+  main:
+    allow-bean-definition-overriding: true
+debug: true

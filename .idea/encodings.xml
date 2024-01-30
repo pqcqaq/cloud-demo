@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/cat-backend/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/common-cloud/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/common-cloud/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/common-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/common-entity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/demo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/demo-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/feign-clients/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/feign-clients/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/feign-clients/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/feign-clients/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/services-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/services-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/src/main/java/online/zust/services/config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/src/main/java/online/zust/services/config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/services-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/test-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cat-backend/test-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

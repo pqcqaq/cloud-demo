@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: feign
+feign:
+  okhttp:
+    enabled: true
+  client:
+    config:
+      default:
+        loggerLevel: full
