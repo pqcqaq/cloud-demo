@@ -5,10 +5,7 @@ import online.zust.services.testservice.entity.LoginParam;
 import online.zust.services.testservice.entity.RegisterParam;
 import online.zust.services.testservice.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author qcqcqc
@@ -17,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface AuthService {
 
     @PostMapping("/register")
-    ResultData<Boolean> register(RegisterParam registerParam);
+    ResultData<Boolean> register(@RequestBody RegisterParam registerParam);
 
     @PostMapping("/login")
-    ResultData<String> login(LoginParam loginParam);
+    ResultData<String> login(@RequestBody LoginParam loginParam);
 
     @GetMapping("/verifyToken")
     ResultData<User> verifyToken(@RequestParam("token") String token);
