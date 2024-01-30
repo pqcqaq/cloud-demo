@@ -96,7 +96,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>online.zust.gateway.GatewayApplication</mainClass>
-                    <skip>true</skip>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>

@@ -101,6 +101,8 @@
         <module>test-service</module>
         <module>auth-service</module>
         <module>services-parent</module>
+        <module>common-cloud</module>
+        <module>services-config</module>
     </modules>
 
 </project>

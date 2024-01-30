@@ -99,12 +99,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--        &lt;!&ndash;    SpringSecurity    &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-security</artifactId>-->
-        <!--        </dependency>-->
-        <!--        jwtutils-->
         <!--    校验依赖    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -161,15 +155,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-    </build>
 </project>

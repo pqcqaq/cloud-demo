@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>cat-backend</module>
-        <module>cat-backend/services-parent</module>
     </modules>
 
     <properties>
