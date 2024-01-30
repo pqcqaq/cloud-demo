@@ -13,6 +13,7 @@
         <module>../demo-service</module>
         <module>../test-service</module>
         <module>../services-config</module>
+        <module>../chain-service</module>
     </modules>
 
     <properties>
