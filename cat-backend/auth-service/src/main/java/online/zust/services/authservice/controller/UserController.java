@@ -47,4 +47,10 @@ public class UserController {
                                             @RequestHeader("service-name") String serviceName) {
         return ResultData.success(200, serviceName, jwt);
     }
+
+    @PostMapping("/checkToken")
+    public boolean checkToken(@RequestBody String token) {
+        return userService.checkToken(token);
+    }
 }
+

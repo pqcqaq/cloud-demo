@@ -20,4 +20,6 @@ public interface UserService extends IService<User> {
     User verifyToken(String token);
 
     String refreshToken(String token);
+
+    boolean checkToken(String token);
 }

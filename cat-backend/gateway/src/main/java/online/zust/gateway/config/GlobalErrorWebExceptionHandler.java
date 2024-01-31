@@ -24,10 +24,14 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @Order(-1)
 @Configuration
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class GlobalErrorWebExceptionHandler implements ErrorWebExceptionHandler {
 
     private final ObjectMapper objectMapper;
+
+    @Autowired
+    public GlobalErrorWebExceptionHandler(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {

@@ -109,4 +109,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public String refreshToken(String token) {
         return JWTUtils.refresh(token);
     }
+
+    @Override
+    public boolean checkToken(String token) {
+        return JWTUtils.checkToken(token);
+    }
 }

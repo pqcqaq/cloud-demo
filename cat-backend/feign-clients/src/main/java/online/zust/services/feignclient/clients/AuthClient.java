@@ -58,4 +58,13 @@ public interface AuthClient {
     @GetMapping("/test/jwtHeader")
     ResultData<String> testJwtHeader(@RequestHeader("jwt") String jwt);
 
+    /**
+     * 检查token
+     *
+     * @param token token
+     * @return 检查结果
+     */
+    @PostMapping("/checkToken")
+    boolean checkToken(@RequestBody String token);
+
 }

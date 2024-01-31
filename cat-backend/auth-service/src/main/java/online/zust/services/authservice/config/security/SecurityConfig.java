@@ -115,6 +115,7 @@ public class SecurityConfig {
                                 .antMatchers("/logout").permitAll()
                                 .antMatchers("/verifyToken").permitAll()
                                 .antMatchers("/refreshToken").permitAll()
+                                .antMatchers("/checkToken").permitAll()
                                 .antMatchers("/test/**").permitAll()
                                 .anyRequest().authenticated()
                 )
