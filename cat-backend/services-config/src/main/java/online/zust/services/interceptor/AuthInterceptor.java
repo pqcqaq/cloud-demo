@@ -52,17 +52,22 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         User playLoad;
         try {
-            playLoad = JWTUtils.getPlayLoad(jwt, User.class);
+            playLoad = JWTUtils.getPlayLoad(token, User.class);
             if (playLoad == null) {
-                playLoad = JWTUtils.getPlayLoad(token, User.class);
+                writeResponse(response, "登录信息已过期！", 401);
+                return false;
+            }
+        } catch (Exception e) {
+            try {
+                playLoad = JWTUtils.getPlayLoad(jwt, User.class);
                 if (playLoad == null) {
                     writeResponse(response, "登录信息无效！", 403);
                     return false;
                 }
+            } catch (Exception ex) {
+                writeResponse(response, "登录信息无效！", 403);
+                return false;
             }
-        } catch (Exception e) {
-            writeResponse(response, e.getMessage(), 500);
-            return false;
         }
         RequestHolder.setJwt(jwt == null ? token : jwt);
         RequestHolder.setUser(playLoad);

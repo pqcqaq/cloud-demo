@@ -9,10 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +28,20 @@ public class FileUtils {
 
     private FileUtils() {
         throw new IllegalStateException("Utility class");
+    }
+
+    public static byte[] readAllBytes(InputStream in) {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int n = 0;
+        try {
+            while ((n = in.read(buffer)) != -1) {
+                out.write(buffer, 0, n);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return out.toByteArray();
     }
 
     /**
@@ -50,35 +65,92 @@ public class FileUtils {
             }
         }
         try {
-            fileBytes = IOUtils.toByteArray((BufferedInputStream) Resources.getResource(resourcePath).getContent());
-        } catch (IOException e) {
+            fileBytes = getFileBytes(resourcePath);
+        } catch (Exception e) {
             throw new UtilsException("get file by path err : " + e.getMessage());
         }
         return fileBytes;
 
     }
 
+    public static String getRealPathByPath(String path) {
+        String path2 = FileUtils.class.getClassLoader().getResource("").getPath();
+        if (path2.contains("jar")) {
+            String substring = path.substring(path.lastIndexOf("/"));
+            return getRealPath(substring);
+        }
+        return path.substring(1);
+    }
+
+    public static String getRealPath(String name) {
+        String path = FileUtils.class.getClassLoader().getResource("").getPath();
+        if (path.contains("jar")) {
+            return getJarPath() + name;
+        }
+        return name.substring(1);
+    }
+
     public static byte[] getFileBytes(String filePath) throws UtilsException {
-        String replace = filePath.replace("\\", "/")
-                .replace("//", "/")
-                .replace("./", "/");
-        byte[] fileBytes = null;
+        URL resource = FileUtils.class.getClassLoader().getResource("");
+        assert resource != null;
+        if (resource.getPath().contains("jar")) {
+            String replace = getPathTrim(filePath);
+            String directoryPath = getJarPath();
+            String filePathTrue = directoryPath + replace;
+            InputStream in = null;
+            try {
+                in = Files.newInputStream(Paths.get(filePathTrue));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (in != null) {
+                return readAllBytes(in);
+            }
+            System.out.println(filePathTrue);
+
+            throw new UtilsException("cannot open file : " + replace);
+        }
+        String replace = getPathTrim(filePath);
+        byte[] fileBytes;
         Resource classPathResource = new ClassPathResource(replace);
-        File f;
         try {
-            f = classPathResource.getFile();
-            fileBytes = IOUtils.toByteArray(new FileInputStream(f));
+            fileBytes = IOUtils.toByteArray(classPathResource.getInputStream());
         } catch (Exception e) {
             throw new UtilsException("get file by path err : " + e.getMessage());
         }
         return fileBytes;
     }
 
-    @SneakyThrows
-    public static List<File> getFilesByPath(String path) {
-        String replace = path.replace("\\", "/")
+    public static String getPathTrim(String filePath) {
+        return filePath.replace("\\", "/")
                 .replace("//", "/")
                 .replace("./", "/");
+    }
+
+    @SneakyThrows
+    public static List<File> getFilesByPath(String path) {
+        URL resource = FileUtils.class.getClassLoader().getResource("");
+        assert resource != null;
+        if (resource.getPath().contains("jar")) {
+            String filePathTrue = genTrueJarResPath(path);
+            File file;
+            try {
+                file = new File(filePathTrue);
+            } catch (Exception e) {
+                throw new UtilsException("get file by path err : " + e.getMessage());
+            }
+            List<File> files = new ArrayList<>();
+            File[] tempList = file.listFiles();
+            if (tempList != null) {
+                for (File value : tempList) {
+                    if (value.isFile() && value.getName().contains(".crt")) {
+                        files.add(value);
+                    }
+                }
+            }
+            return files;
+        }
+        String replace = getPathTrim(path);
         Resource classPathResource = new ClassPathResource(replace);
         File file;
         try {
@@ -96,6 +168,21 @@ public class FileUtils {
             }
         }
         return files;
+    }
+
+    public static String genTrueJarResPath(String path) {
+        String replace = getPathTrim(path);
+        String directoryPath = getJarPath();
+        String filePathTrue = directoryPath + replace;
+        return filePathTrue;
+    }
+
+    public static String getJarPath() {
+        String jarPath = new File(FileUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getAbsolutePath();
+        String replace1 = jarPath.substring(0, jarPath.indexOf("file:") + 1);
+        Path jarFilePath = Paths.get(replace1);
+        Path parentPath = jarFilePath.getParent();
+        return parentPath.toString();
     }
 
     public static String getResourceFilePath(String resourcePath) {

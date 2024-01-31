@@ -24,11 +24,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>online.zust</groupId>
-            <artifactId>chainservice-feign-entity</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--    服务配置    -->
         <dependency>
             <groupId>online.zust</groupId>
@@ -43,13 +38,12 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <!--    长安链相关    -->
         <dependency>
             <groupId>org.chainmaker</groupId>
             <artifactId>chainmaker-sdk-java</artifactId>
+            <version>2.3.3</version>
             <scope>system</scope>
-            <version>2.3.2</version>
-            <systemPath>${project.basedir}/lib/chainmaker-sdk-java-2.3.2.jar</systemPath>
+            <systemPath>${project.basedir}/lib/chainmaker-sdk-java-2.3.3.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
@@ -58,22 +52,8 @@
             <version>2.0.39.Final</version>
             <systemPath>${project.basedir}/lib/netty-tcnative-openssl-static-2.0.39.Final.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna</artifactId>
-            <version>5.12.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>abi</artifactId>
-            <version>5.0.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.bouncycastle</groupId>
-                    <artifactId>bcprov-jdk15on</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
+        <!-- java-sdk中的依赖 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
@@ -83,6 +63,12 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk18on</artifactId>
+            <version>1.75</version>
         </dependency>
 
         <dependency>
@@ -149,10 +135,27 @@
             <artifactId>grpc-protobuf</artifactId>
             <version>1.53.0</version>
         </dependency>
+
         <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.61</version>
+            <groupId>org.web3j</groupId>
+            <artifactId>abi</artifactId>
+            <version>5.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bcprov-jdk15on</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
         </dependency>
     </dependencies>
 
@@ -185,23 +188,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <argLine>--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED</argLine>
-                </configuration>
-            </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <targetPath>${project.build.directory}/classes</targetPath>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
     </build>
 </project>
