@@ -9,5 +9,5 @@ public interface ChainService {
      *
      * @return 链配置
      */
-    String getChainConfig();
+    online.zust.services.chainservice.entity.ChainConfig getChainConfig();
 }

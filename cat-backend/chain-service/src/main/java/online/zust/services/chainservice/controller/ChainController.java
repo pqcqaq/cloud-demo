@@ -22,7 +22,7 @@ public class ChainController {
     }
 
     @GetMapping("/chainConfig")
-    public ResultData<String> getChainConfig() {
+    public ResultData< online.zust.services.chainservice.entity.ChainConfig> getChainConfig() {
         return ResultData.success(200, "success", chainService.getChainConfig());
     }
 }

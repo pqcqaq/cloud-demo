@@ -19,8 +19,8 @@ public class ChainServiceImpl implements ChainService {
     }
 
     @Override
-    public String getChainConfig() {
-        return remoteChainClient.getChainConfig().getData();
+    public  online.zust.services.chainservice.entity.ChainConfig getChainConfig() {
+        return remoteChainClient.getChainConfig();
     }
 
 }

@@ -1,6 +1,6 @@
 package online.zust.services.chainservice.client;
 
-import online.zust.common.entity.ResultData;
+import online.zust.services.chainservice.entity.ChainConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,5 +15,5 @@ public interface RemoteChainClient {
      * @return 链配置
      */
     @GetMapping("/chainConfig")
-    ResultData<String> getChainConfig();
+    ChainConfig getChainConfig();
 }

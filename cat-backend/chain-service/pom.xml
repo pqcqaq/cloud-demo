@@ -24,6 +24,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>chainservice-feign-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--    服务配置    -->
         <dependency>
             <groupId>online.zust</groupId>
