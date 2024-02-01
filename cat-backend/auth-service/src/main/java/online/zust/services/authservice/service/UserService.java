@@ -1,9 +1,9 @@
 package online.zust.services.authservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import online.zust.services.authservice.entity.dto.LoginParam;
-import online.zust.services.authservice.entity.dto.RegisterParam;
 import online.zust.services.authservice.entity.po.User;
+import online.zust.services.entity.dto.LoginParams;
+import online.zust.services.entity.dto.RegisterParam;
 
 /**
  * @author qcqcqc
@@ -15,7 +15,7 @@ public interface UserService extends IService<User> {
      */
     boolean register(RegisterParam registerParam);
 
-    String login(LoginParam loginParam);
+    String login(LoginParams loginParams);
 
     User verifyToken(String token);
 

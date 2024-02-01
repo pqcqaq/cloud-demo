@@ -15,6 +15,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * @author qcqcqc
+ */
 @Configuration
 public class FeignResponseErrorDecoder extends ErrorDecoder.Default {
 

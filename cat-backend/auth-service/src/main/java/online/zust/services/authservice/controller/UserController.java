@@ -3,10 +3,10 @@ package online.zust.services.authservice.controller;
 import online.zust.common.entity.ResultData;
 import online.zust.services.annotation.AuthNeed;
 import online.zust.services.annotation.NoAuth;
-import online.zust.services.authservice.entity.dto.LoginParam;
-import online.zust.services.authservice.entity.dto.RegisterParam;
 import online.zust.services.authservice.entity.po.User;
 import online.zust.services.authservice.service.UserService;
+import online.zust.services.entity.dto.RegisterParam;
+import online.zust.services.entity.dto.LoginParams;
 import online.zust.services.utils.RequestHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -32,8 +32,8 @@ public class UserController {
 
     @NoAuth
     @PostMapping("/login")
-    public ResultData<String> login(@RequestBody @Validated LoginParam loginParam) {
-        return ResultData.success(200, "登录成功", userService.login(loginParam));
+    public ResultData<String> login(@RequestBody @Validated LoginParams loginParams) {
+        return ResultData.success(200, "登录成功", userService.login(loginParams));
     }
 
     @NoAuth

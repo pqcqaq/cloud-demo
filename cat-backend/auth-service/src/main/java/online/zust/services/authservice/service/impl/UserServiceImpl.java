@@ -3,13 +3,13 @@ package online.zust.services.authservice.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import online.zust.services.authservice.entity.UserLogin;
-import online.zust.services.authservice.entity.dto.LoginParam;
-import online.zust.services.authservice.entity.dto.RegisterParam;
 import online.zust.services.authservice.entity.po.User;
 import online.zust.services.authservice.mapper.UserMapper;
 import online.zust.services.authservice.service.UserService;
 import online.zust.common.exception.ServiceException;
 import online.zust.common.utils.JWTUtils;
+import online.zust.services.entity.dto.LoginParams;
+import online.zust.services.entity.dto.RegisterParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -83,9 +83,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public String login(LoginParam loginParam) {
+    public String login(LoginParams loginParams) {
         //获取认证对象
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginParam.getUsername(), loginParam.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                loginParams.getUsername(), loginParams.getPassword());
         //认证
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         //认证失败

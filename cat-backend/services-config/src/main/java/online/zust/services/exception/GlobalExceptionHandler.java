@@ -53,7 +53,10 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResultData<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
-        String message = allErrors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("; "));
+        String message = allErrors.stream().map(
+                DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.joining("; ")
+                );
         return ResultData.error(403, message);
     }
 }
