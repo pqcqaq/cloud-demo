@@ -1,5 +1,6 @@
 package online.zust.services.utils;
 
+import online.zust.common.exception.ServiceException;
 import online.zust.services.entity.User;
 
 /**
@@ -18,6 +19,14 @@ public class RequestHolder {
 
     public static User getUser() {
         return USER_THREAD_LOCAL.get();
+    }
+
+    public static User getUserOrThrow() {
+        User user = USER_THREAD_LOCAL.get();
+        if (user == null) {
+            throw new ServiceException("未找到登录信息！");
+        }
+        return user;
     }
 
     public static void setServiceNameThreadLocal(String name) {

@@ -1,6 +1,5 @@
 package online.zust.services.chainservice.controller;
 
-import online.zust.services.annotation.NoAuth;
 import online.zust.services.chainservice.entity.ChainConfig;
 import online.zust.services.chainservice.entity.ResultData;
 import online.zust.services.chainservice.entity.TxResponse;

@@ -13,6 +13,22 @@ import java.time.LocalDateTime;
  */
 public class LocalDatetimeDeserializer extends JsonDeserializer<LocalDateTime> {
 
+    private static volatile LocalDatetimeDeserializer instance;
+
+    private LocalDatetimeDeserializer() {
+    }
+
+    public static LocalDatetimeDeserializer getInstance() {
+        if (instance == null) {
+            synchronized (LocalDatetimeDeserializer.class) {
+                if (instance == null) {
+                    instance = new LocalDatetimeDeserializer();
+                }
+            }
+        }
+        return instance;
+    }
+
     @Override
     public LocalDateTime deserialize(JsonParser p, DeserializationContext ctx)
             throws IOException {

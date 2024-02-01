@@ -28,14 +28,17 @@ public class ChainServiceImpl implements ChainService {
         return new online.zust.services.chainservice.entity.ChainConfig(ChainConfig.getChainConfig(chainClient));
     }
 
+    @Override
     public TxResponse createContract() {
         return Contract.createContract(chainClient, user);
     }
 
+    @Override
     public TxResponse invokeContract() {
         return Contract.invokeContract(chainClient);
     }
 
+    @Override
     public TxResponse queryContract() {
         return Contract.queryContract(chainClient);
     }

@@ -3,9 +3,11 @@ package online.zust.services.interceptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import online.zust.common.entity.ResultData;
 import online.zust.common.utils.JWTUtils;
+import online.zust.services.annotation.AuthNeed;
 import online.zust.services.annotation.NoAuth;
 import online.zust.services.entity.User;
 import online.zust.services.utils.RequestHolder;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +31,27 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
+        if (authNeed(handlerMethod)) {
+            return authNeed(request, response);
+        }
+        if (noAuth(handlerMethod)) {
+            return true;
+        }
+        return authNeed(request, response);
+    }
+
+    private static boolean authNeed(HandlerMethod handlerMethod) {
+        if (handlerMethod.getMethodAnnotation(AuthNeed.class) != null) {
+            return true;
+        }
+        //如果方法名上有指定注解或者类型上有指定注解，就不需要验证
+        if (handlerMethod.getBeanType().getAnnotation(AuthNeed.class) != null) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean noAuth(HandlerMethod handlerMethod) {
         if (handlerMethod.getMethodAnnotation(NoAuth.class) != null) {
             return true;
         }
@@ -36,7 +59,10 @@ public class AuthInterceptor implements HandlerInterceptor {
         if (handlerMethod.getBeanType().getAnnotation(NoAuth.class) != null) {
             return true;
         }
+        return false;
+    }
 
+    private boolean authNeed(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // 从请求头中获取jwt，service-name两个字段
         String token = request.getHeader("token");
         String jwt = request.getHeader("jwt");
@@ -51,28 +77,48 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
 
         User playLoad;
-        try {
-            playLoad = JWTUtils.getPlayLoad(token, User.class);
-            if (playLoad == null) {
-                writeResponse(response, "登录信息已过期！", 401);
-                return false;
-            }
-        } catch (Exception e) {
-            try {
-                playLoad = JWTUtils.getPlayLoad(jwt, User.class);
-                if (playLoad == null) {
-                    writeResponse(response, "登录信息无效！", 403);
-                    return false;
-                }
-            } catch (Exception ex) {
-                writeResponse(response, "登录信息无效！", 403);
-                return false;
-            }
+        playLoad = getUser(response, token, jwt);
+        if (playLoad == null) {
+            return false;
         }
         RequestHolder.setJwt(jwt == null ? token : jwt);
         RequestHolder.setUser(playLoad);
         RequestHolder.setServiceNameThreadLocal(serviceName);
         return true;
+    }
+
+    @Nullable
+    private User getUser(HttpServletResponse response, String token, String jwt) throws IOException {
+        User playLoad;
+        try {
+            playLoad = JWTUtils.getPlayLoad(token, User.class);
+            if (playLoad == null) {
+                writeResponse(response, "登录信息已过期！", 401);
+                return null;
+            }
+        } catch (Exception e) {
+            playLoad = getUserByJwt(response, jwt);
+            if (playLoad == null) {
+                return null;
+            }
+        }
+        return playLoad;
+    }
+
+    @Nullable
+    private User getUserByJwt(HttpServletResponse response, String jwt) throws IOException {
+        User playLoad;
+        try {
+            playLoad = JWTUtils.getPlayLoad(jwt, User.class);
+            if (playLoad == null) {
+                writeResponse(response, "登录信息无效！", 403);
+                return null;
+            }
+        } catch (Exception ex) {
+            writeResponse(response, "登录信息无效！", 403);
+            return null;
+        }
+        return playLoad;
     }
 
     @Override

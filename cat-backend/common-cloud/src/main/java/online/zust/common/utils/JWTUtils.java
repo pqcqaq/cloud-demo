@@ -47,6 +47,9 @@ public class JWTUtils {
         if (StringUtils.isBlank(token)) {
             return false;
         }
+        if (StringUtils.isBlank(token)) {
+            return false;
+        }
         try {
             JWT.require(Algorithm.HMAC256(jwtConfig.getSecret())).build().verify(token);
         } catch (Exception e) {
@@ -56,6 +59,7 @@ public class JWTUtils {
     }
 
     public static <T> T getPlayLoad(String token, Class<T> clazz) {
+        checkTokenBlank(token);
         try {
             String info = JWT.require(Algorithm.HMAC256(jwtConfig.getSecret())).build().verify(token).getClaim("info").asString();
             ObjectMapper objectMapper = new ObjectMapper();
@@ -77,12 +81,19 @@ public class JWTUtils {
     }
 
     public static String refresh(String token) {
+        checkTokenBlank(token);
         try {
             String info = JWT.require(Algorithm.HMAC256(jwtConfig.getSecret())).build().verify(token).getClaim("info").asString();
             return createJWT(info);
         } catch (Exception e) {
             logger.warning(e.getMessage());
             throw new ServiceException("JWT令牌刷新失败");
+        }
+    }
+
+    private static void checkTokenBlank(String token) {
+        if (StringUtils.isBlank(token)) {
+            throw new ServiceException("JWT令牌为空");
         }
     }
 }

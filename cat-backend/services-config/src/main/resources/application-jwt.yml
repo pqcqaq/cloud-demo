@@ -4,5 +4,5 @@ spring:
       on-profile: jwt
 jwt:
   secret: 238142CD-73BC-A379-082A-E76300DBBDEC
-  expire: 3600
+  expire: 604800
 

@@ -2,6 +2,7 @@ package online.zust.services.testservice.controller;
 
 import online.zust.common.entity.ResultData;
 import online.zust.common.utils.JWTUtils;
+import online.zust.services.annotation.AuthNeed;
 import online.zust.services.annotation.NoAuth;
 import online.zust.services.feignclient.clients.AuthClient;
 import online.zust.services.feignclient.dto.LoginParams;
@@ -62,8 +63,9 @@ public class TestController {
         return ResultData.success(JWTUtils.getPlayLoad(token, User.class));
     }
 
+    @AuthNeed
     @GetMapping("/testJwtHeader")
-    public ResultData<String> testJwtHeader(@RequestParam String jwt) {
+    public ResultData<User> testJwtHeader(@RequestParam String jwt) {
         return authClient.testJwtHeader(jwt);
     }
 }

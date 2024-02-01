@@ -12,6 +12,21 @@ import java.time.LocalDateTime;
  * @author pqcmm
  */
 public class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
+    private static volatile LocalDateTimeSerializer instance;
+
+    private LocalDateTimeSerializer() {
+    }
+
+    public static LocalDateTimeSerializer getInstance() {
+        if (instance == null) {
+            synchronized (LocalDateTimeSerializer.class) {
+                if (instance == null) {
+                    instance = new LocalDateTimeSerializer();
+                }
+            }
+        }
+        return instance;
+    }
     @Override
     public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider provider)
             throws IOException {
