@@ -13,6 +13,9 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
 
+/**
+ * @author qcqcqc
+ */
 @Configuration
 @PropertySource(value = "classpath:sdk_config.yml", encoding = "utf-8", factory = YamlPropertySourceFactory.class)
 public class InitClient {

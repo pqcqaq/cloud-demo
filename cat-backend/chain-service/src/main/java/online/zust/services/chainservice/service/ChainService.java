@@ -2,6 +2,7 @@ package online.zust.services.chainservice.service;
 
 import online.zust.services.chainservice.entity.ChainConfig;
 import online.zust.services.chainservice.entity.TxResponse;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author qcqcqc
@@ -34,4 +35,6 @@ public interface ChainService {
      * @return 交易响应
      */
     TxResponse queryContract();
+
+    TxResponse uploadAndCreateContract(MultipartFile file, String contractName, String contractVersion, String runtimeType);
 }

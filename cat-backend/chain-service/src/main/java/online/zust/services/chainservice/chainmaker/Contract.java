@@ -11,6 +11,9 @@ import org.chainmaker.sdk.ChainClient;
 import org.chainmaker.sdk.User;
 import org.chainmaker.sdk.utils.SdkUtils;
 
+import java.io.File;
+import java.io.FileInputStream;
+
 
 /**
  * @author qcqcqc
@@ -23,8 +26,8 @@ public class Contract {
     private static final String CONTRACT_NAME = "counter_sdk_java_demo";
     private static final String CONTRACT_FILE_PATH = "/rust-fact-1.0.0.wasm";
 
-    public static TxResponse createContract(ChainClient chainClient, User user) {
-        ResultOuterClass.TxResponse responseInfo = null;
+    public static TxResponse createContract(ChainClient chainClient, User... user) {
+        ResultOuterClass.TxResponse responseInfo;
         try {
             byte[] byteCode = FileUtils.getResourceFileBytes(CONTRACT_FILE_PATH);
 
@@ -33,7 +36,31 @@ public class Contract {
                     ContractOuterClass.RuntimeType.WASMER, null);
             //2. create payloads with endorsement
             Request.EndorsementEntry[] endorsementEntries = SdkUtils
-                    .getEndorsers(payload, new User[]{user});
+                    .getEndorsers(payload, user);
+
+            // 3. send request
+            responseInfo = chainClient.sendContractManageRequest(payload, endorsementEntries, 10000, 10000);
+        } catch (Exception e) {
+            log.error("create contract error: {}", e.getMessage());
+            throw new ServiceException(e.getMessage());
+        }
+        return new TxResponse(responseInfo);
+    }
+
+    public static TxResponse createContract(byte[] byteCode,
+                                            String contractName,
+                                            String contractVersion,
+                                            ContractOuterClass.RuntimeType runtimeType,
+                                            ChainClient chainClient, User... user) {
+        ResultOuterClass.TxResponse responseInfo;
+        try {
+
+            // 1. create payload
+            Request.Payload payload = chainClient.createContractCreatePayload(contractName, contractVersion, byteCode,
+                    runtimeType, null);
+            //2. create payloads with endorsement
+            Request.EndorsementEntry[] endorsementEntries = SdkUtils
+                    .getEndorsers(payload, user);
 
             // 3. send request
             responseInfo = chainClient.sendContractManageRequest(payload, endorsementEntries, 10000, 10000);
@@ -45,7 +72,7 @@ public class Contract {
     }
 
     public static TxResponse invokeContract(ChainClient chainClient) {
-        ResultOuterClass.TxResponse responseInfo = null;
+        ResultOuterClass.TxResponse responseInfo;
         try {
             responseInfo = chainClient.invokeContract(CONTRACT_NAME, INVOKE_CONTRACT_METHOD,
                     null, null, 10000, 10000);
@@ -57,7 +84,7 @@ public class Contract {
     }
 
     public static TxResponse queryContract(ChainClient chainClient) {
-        ResultOuterClass.TxResponse responseInfo = null;
+        ResultOuterClass.TxResponse responseInfo;
         try {
             responseInfo = chainClient.queryContract(CONTRACT_NAME, QUERY_CONTRACT_METHOD,
                     null, null, 10000);

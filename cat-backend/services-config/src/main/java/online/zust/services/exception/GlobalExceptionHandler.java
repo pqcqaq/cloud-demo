@@ -4,6 +4,7 @@ import online.zust.common.entity.ResultData;
 import online.zust.common.exception.ServiceException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -52,6 +53,21 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResultData<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
+        String message = allErrors.stream().map(
+                DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.joining("; ")
+                );
+        return ResultData.error(403, message);
+    }
+
+    /**
+     * 参数校验异常
+     * BeanPropertyBindingResult
+     */
+    @ExceptionHandler(BindException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResultData<String> handleBindException(org.springframework.validation.BindException e) {
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
         String message = allErrors.stream().map(
                 DefaultMessageSourceResolvable::getDefaultMessage)
