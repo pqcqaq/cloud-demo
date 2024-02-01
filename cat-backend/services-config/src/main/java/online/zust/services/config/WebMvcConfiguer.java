@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import online.zust.services.interceptor.AuthInterceptor;
+import online.zust.services.serializer.BigDecimalSerialize;
 import online.zust.services.serializer.LocalDateTimeSerializer;
 import online.zust.services.serializer.LocalDatetimeDeserializer;
 import org.slf4j.Logger;
@@ -17,8 +18,8 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -64,6 +65,9 @@ public class WebMvcConfiguer implements WebMvcConfigurer {
         simpleModule.addSerializer(LocalDateTime.class, LocalDateTimeSerializer.getInstance());
         // local-datetime序列化
         simpleModule.addDeserializer(LocalDateTime.class, LocalDatetimeDeserializer.getInstance());
+        // big-decimal序列化
+        simpleModule.addSerializer(BigDecimal.class, BigDecimalSerialize.getInstance());
+        // 添加序列化模块
         objectMapper.registerModule(simpleModule);
         //反序列化的时候如果多了其他属性,不抛出异常
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

@@ -14,6 +14,22 @@ import java.util.List;
  */
 public class ListBigDecimalSerialize extends JsonSerializer<List<BigDecimal>> {
 
+    private static volatile ListBigDecimalSerialize instance;
+
+    private ListBigDecimalSerialize() {
+    }
+
+    public static ListBigDecimalSerialize getInstance() {
+        if (instance == null) {
+            synchronized (ListBigDecimalSerialize.class) {
+                if (instance == null) {
+                    instance = new ListBigDecimalSerialize();
+                }
+            }
+        }
+        return instance;
+    }
+
     @Override
     public void serialize(List<BigDecimal> bigDecimals, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
         if (bigDecimals != null) {

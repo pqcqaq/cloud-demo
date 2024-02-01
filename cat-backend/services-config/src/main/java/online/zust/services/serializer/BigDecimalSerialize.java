@@ -14,6 +14,22 @@ import java.math.RoundingMode;
  */
 public class BigDecimalSerialize extends JsonSerializer<BigDecimal> {
 
+    private static volatile BigDecimalSerialize instance;
+
+    private BigDecimalSerialize() {
+    }
+
+    public static BigDecimalSerialize getInstance() {
+        if (instance == null) {
+            synchronized (BigDecimalSerialize.class) {
+                if (instance == null) {
+                    instance = new BigDecimalSerialize();
+                }
+            }
+        }
+        return instance;
+    }
+
     @Override
     public void serialize(BigDecimal value, JsonGenerator gen, SerializerProvider serializers)
             throws IOException {
