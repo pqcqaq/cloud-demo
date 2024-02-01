@@ -1,7 +1,7 @@
 package online.zust.services.chainservice.controller;
 
+import online.zust.common.entity.ResultData;
 import online.zust.services.chainservice.entity.ChainConfig;
-import online.zust.services.chainservice.entity.ResultData;
 import online.zust.services.chainservice.entity.TxResponse;
 import online.zust.services.chainservice.service.ChainService;
 import org.springframework.beans.factory.annotation.Autowired;

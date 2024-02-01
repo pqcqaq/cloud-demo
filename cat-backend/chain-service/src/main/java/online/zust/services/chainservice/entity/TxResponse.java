@@ -3,6 +3,7 @@ package online.zust.services.chainservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import online.zust.services.chainservice.entity.txresponse.ContractResult;
 import org.chainmaker.pb.common.ResultOuterClass;
 
 /**

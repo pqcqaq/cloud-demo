@@ -3,6 +3,7 @@ package online.zust.services.chainservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import online.zust.services.chainservice.entity.chainconfig.*;
 import org.chainmaker.pb.config.ChainConfigOuterClass;
 
 import java.util.List;
