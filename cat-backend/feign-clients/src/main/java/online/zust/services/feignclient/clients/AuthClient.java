@@ -1,9 +1,9 @@
 package online.zust.services.feignclient.clients;
 
 import online.zust.common.entity.ResultData;
+import online.zust.services.entity.User;
 import online.zust.services.feignclient.dto.LoginParams;
 import online.zust.services.feignclient.dto.RegisterParam;
-import online.zust.services.feignclient.dto.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
