@@ -67,7 +67,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResultData<String> handleBindException(org.springframework.validation.BindException e) {
+    public ResultData<String> handleBindException(BindException e) {
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
         String message = allErrors.stream().map(
                 DefaultMessageSourceResolvable::getDefaultMessage)
