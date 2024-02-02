@@ -1,4 +1,4 @@
-package online.zust.services.chainservice.entity.chainconfig;
+package online.zust.services.chainservice.entity.response.chainconfig;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

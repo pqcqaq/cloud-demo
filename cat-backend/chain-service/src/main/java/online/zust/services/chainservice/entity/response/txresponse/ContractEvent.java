@@ -1,4 +1,4 @@
-package online.zust.services.chainservice.entity.txresponse;
+package online.zust.services.chainservice.entity.response.txresponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

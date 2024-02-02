@@ -173,8 +173,7 @@ public class FileUtils {
     public static String genTrueJarResPath(String path) {
         String replace = getPathTrim(path);
         String directoryPath = getJarPath();
-        String filePathTrue = directoryPath + replace;
-        return filePathTrue;
+        return directoryPath + replace;
     }
 
     public static String getJarPath() {

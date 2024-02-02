@@ -2,6 +2,7 @@ package online.zust.services.chainservice.chainmaker;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.grpc.stub.StreamObserver;
+import online.zust.services.chainservice.chainmaker.client.InitClient;
 import org.bouncycastle.util.encoders.Hex;
 import org.chainmaker.pb.common.ChainmakerBlock;
 import org.chainmaker.pb.common.ChainmakerTransaction;
@@ -23,7 +24,7 @@ public class Subscribe extends InitClient implements Runnable {
     }
 
     static public void testSubscribeBlock() {
-        StreamObserver<ResultOuterClass.SubscribeResult> responseObserver = new StreamObserver<ResultOuterClass.SubscribeResult>() {
+        StreamObserver<ResultOuterClass.SubscribeResult> responseObserver = new StreamObserver<>() {
             @Override
             public void onNext(ResultOuterClass.SubscribeResult result) {
                 try {
@@ -50,7 +51,7 @@ public class Subscribe extends InitClient implements Runnable {
             }
         };
 
-        StreamObserver<ResultOuterClass.SubscribeResult> responseObserverTx = new StreamObserver<ResultOuterClass.SubscribeResult>() {
+        StreamObserver<ResultOuterClass.SubscribeResult> responseObserverTx = new StreamObserver<>() {
             @Override
             public void onNext(ResultOuterClass.SubscribeResult result) {
                 try {

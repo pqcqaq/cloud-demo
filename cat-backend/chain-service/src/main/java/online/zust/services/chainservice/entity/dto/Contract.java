@@ -1,6 +1,7 @@
-package online.zust.services.chainservice.entity;
+package online.zust.services.chainservice.entity.dto;
 
 import lombok.Data;
+import org.chainmaker.pb.common.ContractOuterClass;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -19,4 +20,5 @@ public class Contract {
     @NotBlank(message = "合约类型不能为空")
     @Pattern(regexp = "^(WASMER|GASM|EVM|WXVM|DOCKER_GO)$", message = "请输入正确的runtimeType")
     private String runtimeType;
+
 }

@@ -1,5 +1,6 @@
-package online.zust.services.chainservice.chainmaker;
+package online.zust.services.chainservice.chainmaker.client;
 
+import online.zust.services.chainservice.chainmaker.ChainManager;
 import online.zust.services.chainservice.utils.FileUtils;
 import online.zust.services.chainservice.utils.YamlPropertySourceFactory;
 import org.chainmaker.sdk.ChainClient;

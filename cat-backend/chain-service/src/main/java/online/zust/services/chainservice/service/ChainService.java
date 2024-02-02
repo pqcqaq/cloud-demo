@@ -1,8 +1,9 @@
 package online.zust.services.chainservice.service;
 
-import online.zust.services.chainservice.entity.ChainConfig;
-import online.zust.services.chainservice.entity.TxResponse;
+import online.zust.services.chainservice.entity.response.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * @author qcqcqc
@@ -36,5 +37,36 @@ public interface ChainService {
      */
     TxResponse queryContract();
 
+    /**
+     * 上传并创建合约
+     *
+     * @param file            合约文件
+     * @param contractName    合约名称
+     * @param contractVersion 合约版本
+     * @param runtimeType     运行时类型
+     * @return 交易响应
+     */
     TxResponse uploadAndCreateContract(MultipartFile file, String contractName, String contractVersion, String runtimeType);
+
+    /**
+     * 获取区块信息
+     *
+     * @param height 区块高度
+     * @return 区块信息
+     */
+    BlockInfo getBlockByHeight(Long height);
+
+    /**
+     * 根据交易ID获取交易信息
+     *
+     * @param txId 交易ID
+     * @return 交易信息
+     */
+    TransactionInfo getTxByTxId(String txId);
+
+    /**
+     * 获取合约列表
+     * @return 合约列表
+     */
+    List<Contract> getContractList();
 }

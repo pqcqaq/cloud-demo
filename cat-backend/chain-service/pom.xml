@@ -157,6 +157,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.protobuf-java-format</groupId>
+            <artifactId>protobuf-java-format</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
     <build>

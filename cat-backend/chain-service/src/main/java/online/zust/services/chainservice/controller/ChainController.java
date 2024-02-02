@@ -1,9 +1,12 @@
 package online.zust.services.chainservice.controller;
 
 import online.zust.common.entity.ResultData;
-import online.zust.services.chainservice.entity.ChainConfig;
-import online.zust.services.chainservice.entity.Contract;
-import online.zust.services.chainservice.entity.TxResponse;
+import online.zust.services.annotation.NoAuth;
+import online.zust.services.chainservice.entity.dto.Contract;
+import online.zust.services.chainservice.entity.response.BlockInfo;
+import online.zust.services.chainservice.entity.response.ChainConfig;
+import online.zust.services.chainservice.entity.response.TransactionInfo;
+import online.zust.services.chainservice.entity.response.TxResponse;
 import online.zust.services.chainservice.service.ChainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -13,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 /**
  * @author qcqcqc
  */
 @RestController
+@NoAuth
 public class ChainController {
 
     private final ChainService chainService;
@@ -76,5 +82,37 @@ public class ChainController {
                                                           @Validated Contract contract
     ) {
         return ResultData.success(200, "success", chainService.uploadAndCreateContract(file, contract.getContractName(), contract.getContractVersion(), contract.getRuntimeType()));
+    }
+
+    /**
+     * 根据区块高度获取区块信息
+     *
+     * @param height 交易hash
+     * @return 交易信息
+     */
+    @GetMapping("/getBlockByHeight")
+    public ResultData<BlockInfo> getBlockByHeight(@RequestParam("height") Long height) {
+        return ResultData.success(200, "success", chainService.getBlockByHeight(height));
+    }
+
+    /**
+     * 根据交易ID获取交易信息
+     *
+     * @param txId 交易ID
+     * @return 交易信息
+     */
+    @GetMapping("/getTxByTxId")
+    public ResultData<TransactionInfo> getTxByTxId(@RequestParam("txId") String txId) {
+        return ResultData.success(200, "success", chainService.getTxByTxId(txId));
+    }
+
+    /**
+     * 获取合约列表
+     *
+     * @return 合约列表
+     */
+    @GetMapping("/getContractList")
+    public ResultData<List<online.zust.services.chainservice.entity.response.Contract>> getContractList() {
+        return ResultData.success(200, "success", chainService.getContractList());
     }
 }

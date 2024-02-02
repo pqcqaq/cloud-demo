@@ -16,7 +16,7 @@ chain_client:
     tls_host_name: chainmaker.org
   archive:
     type: mysql
-    dest: root:123456:localhost:3306
+    dest: root:RrOoOoTt!@#123.:localhost:33060
     secret_key: xxx
   rpc_client:
     max_receive_message_size: 16

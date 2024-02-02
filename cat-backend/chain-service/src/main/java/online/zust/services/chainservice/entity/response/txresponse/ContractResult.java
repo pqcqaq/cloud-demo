@@ -1,9 +1,8 @@
-package online.zust.services.chainservice.entity.txresponse;
+package online.zust.services.chainservice.entity.response.txresponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import online.zust.services.chainservice.entity.txresponse.ContractEvent;
 import org.chainmaker.pb.common.ResultOuterClass;
 
 import java.util.ArrayList;
