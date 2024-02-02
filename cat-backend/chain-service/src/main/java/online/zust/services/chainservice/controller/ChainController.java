@@ -115,4 +115,27 @@ public class ChainController {
     public ResultData<List<online.zust.services.chainservice.entity.response.Contract>> getContractList() {
         return ResultData.success(200, "success", chainService.getContractList());
     }
+
+    /**
+     * 根据交易hash获取区块信息
+     *
+     * @param hash 交易hash
+     * @return 区块信息
+     */
+    @GetMapping("/getBlockByTxHash")
+    public ResultData<BlockInfo> getBlockByTxHash(@RequestParam("hash") String hash) {
+        return ResultData.success(200, "success", chainService.getBlockByHash(hash));
+    }
+
+    /**
+     * 根据交易id获取区块信息
+     *
+     * @param txId 交易id
+     * @return 交易信息
+     */
+    @GetMapping("/getBlockByTxId")
+    public ResultData<BlockInfo> getBlockByTxId(@RequestParam("txId") String txId) {
+        return ResultData.success(200, "success", chainService.getBlockByTxId(txId));
+    }
+
 }

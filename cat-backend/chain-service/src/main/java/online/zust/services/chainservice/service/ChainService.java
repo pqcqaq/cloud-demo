@@ -66,7 +66,24 @@ public interface ChainService {
 
     /**
      * 获取合约列表
+     *
      * @return 合约列表
      */
     List<Contract> getContractList();
+
+    /**
+     * 根据交易hash获取区块信息
+     *
+     * @param hash 交易hash
+     * @return 区块详情
+     */
+    BlockInfo getBlockByHash(String hash);
+
+    /**
+     * 根据交易ID获取区块信息
+     *
+     * @param txId 交易ID
+     * @return 区块信息
+     */
+    BlockInfo getBlockByTxId(String txId);
 }

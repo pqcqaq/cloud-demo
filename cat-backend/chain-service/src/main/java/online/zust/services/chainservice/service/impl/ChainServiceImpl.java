@@ -6,10 +6,7 @@ import online.zust.services.chainservice.chainmaker.SystemContract;
 import online.zust.services.chainservice.chainmaker.contract.DefaultContract;
 import online.zust.services.chainservice.entity.response.*;
 import online.zust.services.chainservice.service.ChainService;
-import org.chainmaker.pb.common.ChainmakerTransaction;
-import org.chainmaker.pb.common.ContractOuterClass;
-import org.chainmaker.pb.common.Request;
-import org.chainmaker.pb.common.ResultOuterClass;
+import org.chainmaker.pb.common.*;
 import org.chainmaker.pb.config.ChainConfigOuterClass;
 import org.chainmaker.sdk.ChainClient;
 import org.chainmaker.sdk.User;
@@ -181,5 +178,29 @@ public class ChainServiceImpl implements ChainService {
         }
         return Arrays.stream(contractList).map(Contract::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public BlockInfo getBlockByHash(String hash) {
+        ChainmakerBlock.BlockInfo blockByHash;
+        try {
+            blockByHash = chainClient.getBlockByHash(hash, false, rpcCallTimeout);
+        } catch (Exception e) {
+            log.error("get block by hash error: {}", e.getMessage());
+            throw new ServiceException(e.getMessage());
+        }
+        return new BlockInfo(blockByHash);
+    }
+
+    @Override
+    public BlockInfo getBlockByTxId(String txId) {
+        ChainmakerBlock.BlockInfo blockByTxId;
+        try {
+            blockByTxId = chainClient.getBlockByTxId(txId, false, rpcCallTimeout);
+        } catch (Exception e) {
+            log.error("get block by txId error: {}", e.getMessage());
+            throw new ServiceException(e.getMessage());
+        }
+        return new BlockInfo(blockByTxId);
     }
 }
