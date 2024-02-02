@@ -28,7 +28,7 @@ import java.util.List;
 @NoArgsConstructor
 public class User implements Serializable {
     @Serial
-    private static final long serialVersionUID = -3893325794150948776L;
+    private static final long serialVersionUID = 1300711120553327264L;
     private Long id;
     private String username;
     private String password;
