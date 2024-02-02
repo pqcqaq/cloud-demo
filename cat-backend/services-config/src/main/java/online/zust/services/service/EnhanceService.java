@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.core.override.MybatisMapperProxy;
 import com.baomidou.mybatisplus.core.toolkit.*;
 import com.baomidou.mybatisplus.core.toolkit.reflect.GenericTypeUtils;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import online.zust.services.annotation.DeepSearch;
 import online.zust.services.utils.ProxyUtil;
@@ -35,11 +34,12 @@ import java.util.function.Function;
 /**
  * @author qcqcqc
  */
+@SuppressWarnings("all")
 public class EnhanceService<M extends BaseMapper<T>, T> implements IService<T> {
 
     protected final Log log = LogFactory.getLog(getClass());
 
-    protected final Class<?>[] typeArguments = GenericTypeUtils.resolveTypeArguments(getClass(), ServiceImpl.class);
+    protected final Class<?>[] typeArguments = GenericTypeUtils.resolveTypeArguments(getClass(), EnhanceService.class);
 
     protected final Class<T> entityClass = currentModelClass();
 
