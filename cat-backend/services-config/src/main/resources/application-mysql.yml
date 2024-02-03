@@ -9,3 +9,7 @@ spring:
     url: jdbc:mysql://localhost:33060/cloud_test?serverTimezone=UTC
     username: root
     password: RrOoOoTt!@#123.
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
