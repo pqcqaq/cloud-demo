@@ -56,7 +56,7 @@ public interface AuthClient {
      * @return 测试结果
      */
     @GetMapping("/test/jwtHeader")
-    ResultData<User> testJwtHeader(@RequestHeader("jwt") String jwt);
+    ResultData<User> testJwtHeader();
 
     /**
      * 检查token

@@ -104,12 +104,11 @@ public class TestController {
     /**
      * 测试feign请求头携带jwt
      *
-     * @param jwt jwt
      * @return test
      */
     @AuthNeed
     @GetMapping("/testJwtHeader")
-    public ResultData<User> testJwtHeader(@RequestParam String jwt) {
-        return authClient.testJwtHeader(jwt);
+    public ResultData<User> testJwtHeader() {
+        return authClient.testJwtHeader();
     }
 }
