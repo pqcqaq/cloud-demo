@@ -1,18 +1,17 @@
 package online.zust.services.carbon.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
- *
  * @author qcqcqc
  * @TableName industry
  */
-@TableName(value ="industry",autoResultMap = true)
+@TableName(value = "industry", autoResultMap = true)
 @Data
 public class Industry implements Serializable {
     @Serial
