@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -32,7 +33,7 @@ public class ReportAlpha1 implements Serializable {
     /**
      *
      */
-    private String dataAlpha1;
+    private BigDecimal dataAlpha1;
 
     /**
      *
