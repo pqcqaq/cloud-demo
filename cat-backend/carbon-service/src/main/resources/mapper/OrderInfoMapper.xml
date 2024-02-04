@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.zust.services.carbon.mapper.OrderInfoMapper">
+
+    <resultMap id="BaseResultMap" type="online.zust.services.carbon.domain.OrderInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="saleCompanyId" column="sale_company_id" jdbcType="BIGINT"/>
+            <result property="buyCompanyId" column="buy_company_id" jdbcType="BIGINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="disabled" column="disabled" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,product_id,
+        sale_company_id,buy_company_id,create_by,
+        create_time,status,disabled
+    </sql>
+</mapper>
