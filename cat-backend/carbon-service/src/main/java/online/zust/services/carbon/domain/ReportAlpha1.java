@@ -1,48 +1,43 @@
 package online.zust.services.carbon.domain;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * @author qcqcqc
- * @TableName emission_factors
+ * @TableName report_alpha1
  */
-@TableName(value = "emission_factors", autoResultMap = true)
+@TableName(value = "report_alpha1", autoResultMap = true)
 @Data
-public class EmissionFactors implements Serializable {
+public class ReportAlpha1 implements Serializable {
     @Serial
     @TableField(exist = false)
-    private static final long serialVersionUID = -1126388881178004004L;
+    private static final long serialVersionUID = -5035745301839809459L;
     /**
      *
      */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
      *
      */
-    private String type;
+    private String typeAlpha1;
 
     /**
      *
      */
-    private BigDecimal co2Data;
+    private String dataAlpha1;
 
     /**
      *
      */
-    private BigDecimal ch4Data;
-
-    /**
-     *
-     */
-    private BigDecimal no2Data;
+    private Long typeAlpha1Id;
 
     /**
      *
@@ -59,5 +54,4 @@ public class EmissionFactors implements Serializable {
      */
     @TableLogic
     private Integer disabled;
-
 }

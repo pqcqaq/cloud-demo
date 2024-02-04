@@ -10,14 +10,14 @@ import lombok.Data;
 /**
  *
  * @author qcqcqc
- * @TableName industry
+ * @TableName report_a
  */
-@TableName(value ="industry",autoResultMap = true)
+@TableName(value ="report_a",autoResultMap = true)
 @Data
-public class Industry implements Serializable {
+public class ReportA implements Serializable {
     @Serial
     @TableField(exist = false)
-    private static final long serialVersionUID = 7501038614796047918L;
+    private static final long serialVersionUID = 6032142488731195070L;
     /**
      *
      */
@@ -27,15 +27,21 @@ public class Industry implements Serializable {
     /**
      *
      */
-    private String name;
+    private String typeA;
 
     /**
-     * 行业详情
+     *
      */
-    private String details;
+    private String dataA;
 
     /**
-     * 添加时间
+     *
+     */
+    @TableField(value = "type_a_id")
+    private Long typeAId;
+
+    /**
+     *
      */
     private Date createTime;
 
@@ -49,5 +55,4 @@ public class Industry implements Serializable {
      */
     @TableLogic
     private Integer disabled;
-
 }

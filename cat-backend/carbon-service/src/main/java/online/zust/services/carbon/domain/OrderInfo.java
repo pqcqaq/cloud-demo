@@ -17,6 +17,7 @@ import java.util.Date;
 @Data
 public class OrderInfo implements Serializable {
     @Serial
+    @TableField(exist = false)
     private static final long serialVersionUID = 7174823353924399418L;
     /**
      *

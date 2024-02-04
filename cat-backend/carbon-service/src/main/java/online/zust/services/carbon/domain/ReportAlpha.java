@@ -1,23 +1,22 @@
 package online.zust.services.carbon.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
- *
  * @author qcqcqc
- * @TableName industry
+ * @TableName report_alpha
  */
-@TableName(value ="industry",autoResultMap = true)
+@TableName(value = "report_alpha", autoResultMap = true)
 @Data
-public class Industry implements Serializable {
+public class ReportAlpha implements Serializable {
     @Serial
     @TableField(exist = false)
-    private static final long serialVersionUID = 7501038614796047918L;
+    private static final long serialVersionUID = -7765998559420641034L;
     /**
      *
      */
@@ -27,15 +26,20 @@ public class Industry implements Serializable {
     /**
      *
      */
-    private String name;
+    private String typeAlpha;
 
     /**
-     * 行业详情
+     *
      */
-    private String details;
+    private String dataAlpha;
 
     /**
-     * 添加时间
+     *
+     */
+    private Long typeAlphaId;
+
+    /**
+     *
      */
     private Date createTime;
 
@@ -49,5 +53,4 @@ public class Industry implements Serializable {
      */
     @TableLogic
     private Integer disabled;
-
 }

@@ -17,6 +17,7 @@ import java.util.Date;
 @Data
 public class CompanyInfo implements Serializable {
     @Serial
+    @TableField(exist = false)
     private static final long serialVersionUID = -6030775323206689813L;
     /**
      * 公司id

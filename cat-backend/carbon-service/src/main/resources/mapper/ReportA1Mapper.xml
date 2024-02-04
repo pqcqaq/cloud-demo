@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.zust.services.carbon.mapper.ReportA1Mapper">
+
+    <resultMap id="BaseResultMap" type="online.zust.services.carbon.domain.ReportA1">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="typeA1" column="type_a1" jdbcType="VARCHAR"/>
+            <result property="dataA1" column="data_a1" jdbcType="VARCHAR"/>
+            <result property="typeA1Id" column="type_a1_id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="disabled" column="disabled" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type_a1,data_a1,
+        type_a1_id,create_time,create_by,
+        disabled
+    </sql>
+</mapper>

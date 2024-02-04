@@ -68,8 +68,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="EmissionFactors" />
-                  <option name="tableName" value="emission_factors" />
+                  <option name="className" value="ReportA1" />
+                  <option name="tableName" value="report_a1" />
                 </TableUIInfo>
               </list>
             </option>
