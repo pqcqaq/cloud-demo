@@ -5,7 +5,7 @@
 <mapper namespace="online.zust.services.carbon.mapper.ReportAlpha1Mapper">
 
     <resultMap id="BaseResultMap" type="online.zust.services.carbon.domain.ReportAlpha1">
-            <result property="id" column="id" jdbcType="BIGINT"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="typeAlpha1" column="type_alpha1" jdbcType="VARCHAR"/>
             <result property="dataAlpha1" column="data_alpha1" jdbcType="VARCHAR"/>
             <result property="typeAlpha1Id" column="type_alpha1_id" jdbcType="BIGINT"/>

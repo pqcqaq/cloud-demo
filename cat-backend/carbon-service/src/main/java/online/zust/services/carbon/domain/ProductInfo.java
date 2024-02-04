@@ -2,7 +2,7 @@ package online.zust.services.carbon.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
-import online.zust.services.annotation.DeepSearch;
+import online.zust.services.annotation.OtODeepSearch;
 import online.zust.services.carbon.service.impl.CompanyInfoServiceImpl;
 
 import java.io.Serial;
@@ -54,7 +54,7 @@ public class ProductInfo implements Serializable {
     /**
      * 关联企业
      */
-    @DeepSearch(field = "companyId", service = CompanyInfoServiceImpl.class)
+    @OtODeepSearch(baseId = "companyId", service = CompanyInfoServiceImpl.class)
     @TableField(exist = false)
     private CompanyInfo companyInfo;
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author qcqcqc
  * @description 针对表【report_alpha1】的数据库操作Service实现
- * @createDate 2024-02-04 19:18:46
+ * @createDate 2024-02-04 20:54:48
  */
 @Service
 public class ReportAlpha1ServiceImpl extends EnhanceService<ReportAlpha1Mapper, ReportAlpha1>

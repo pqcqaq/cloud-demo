@@ -1,6 +1,7 @@
 package online.zust.services.carbon.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -14,15 +15,15 @@ import java.util.Date;
  * @author qcqcqc
  * @TableName report_alpha1
  */
-@TableName(value = "report_alpha1", autoResultMap = true)
+@TableName(value = "report_alpha1")
 @Data
 public class ReportAlpha1 implements Serializable {
     @Serial
-    @TableField(exist = false)
-    private static final long serialVersionUID = -5035745301839809459L;
+    private static final long serialVersionUID = -3945346956057571251L;
     /**
      *
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
