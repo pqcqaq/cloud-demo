@@ -2,6 +2,7 @@ package online.zust.services.carbon.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import online.zust.services.carbon.domain.CompanyInfo;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author qcqcqc
@@ -9,6 +10,7 @@ import online.zust.services.carbon.domain.CompanyInfo;
  * @createDate 2024-02-03 22:19:50
  * @Entity online.zust.services.carbon.entity.po.domain.CompanyInfo
  */
+@Mapper
 public interface CompanyInfoMapper extends BaseMapper<CompanyInfo> {
 
 }

@@ -2,6 +2,7 @@ package online.zust.services.carbon.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import online.zust.services.carbon.domain.OrderInfo;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author qcqcqc
@@ -9,6 +10,7 @@ import online.zust.services.carbon.domain.OrderInfo;
  * @createDate 2024-02-03 22:22:48
  * @Entity online.zust.services.carbon.domain.OrderInfo
  */
+@Mapper
 public interface OrderInfoMapper extends BaseMapper<OrderInfo> {
 
 }
