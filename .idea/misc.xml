@@ -24,6 +24,7 @@
         <option value="$PROJECT_DIR$/cat-backend/chain-service/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/carbon-service/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/dubbo-rpc/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/carbon-trade-service/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

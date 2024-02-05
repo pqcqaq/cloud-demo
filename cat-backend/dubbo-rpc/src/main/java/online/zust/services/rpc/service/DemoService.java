@@ -1,7 +1,6 @@
 package online.zust.services.rpc.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import online.zust.common.entity.ResultData;
 import online.zust.services.rpc.entity.Demo;
 
 /**
@@ -9,5 +8,9 @@ import online.zust.services.rpc.entity.Demo;
  */
 public interface DemoService extends IService<Demo> {
 
+    /**
+     * hello
+     * @return hello
+     */
     String hello();
 }

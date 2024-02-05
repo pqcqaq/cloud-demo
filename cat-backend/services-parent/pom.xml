@@ -14,7 +14,8 @@
         <module>../test-service</module>
         <module>../services-config</module>
         <module>../chain-service</module>
-        <module>../carbon-service</module>
+        <module>../carbon-cal-service</module>
+        <module>../carbon-trade-service</module>
     </modules>
 
     <properties>
@@ -192,25 +193,25 @@
             <artifactId>nacos-client</artifactId>
             <version>2.1.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.dubbo</groupId>-->
-<!--            <artifactId>dubbo-registry-nacos</artifactId>-->
-<!--            <version>${dubbo.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.dubbo</groupId>-->
-<!--                    <artifactId>dubbo-common</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.dubbo</groupId>-->
-<!--                    <artifactId>dubbo-remoting-api</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>log4j</groupId>-->
-<!--                    <artifactId>log4j</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.dubbo</groupId>-->
+        <!--            <artifactId>dubbo-registry-nacos</artifactId>-->
+        <!--            <version>${dubbo.version}</version>-->
+        <!--            <exclusions>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.dubbo</groupId>-->
+        <!--                    <artifactId>dubbo-common</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.dubbo</groupId>-->
+        <!--                    <artifactId>dubbo-remoting-api</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>log4j</groupId>-->
+        <!--                    <artifactId>log4j</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
