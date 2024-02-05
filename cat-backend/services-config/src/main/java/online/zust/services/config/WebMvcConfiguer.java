@@ -72,7 +72,7 @@ public class WebMvcConfiguer implements WebMvcConfigurer {
         //反序列化的时候如果多了其他属性,不抛出异常
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         converter.setObjectMapper(objectMapper);
-        converters.add(converter);
+        converters.add(0, converter);
         converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
     }
 }
