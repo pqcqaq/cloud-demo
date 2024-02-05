@@ -13,4 +13,6 @@ public interface DemoService extends IService<Demo> {
      * @return hello
      */
     String hello();
+
+    String testError();
 }

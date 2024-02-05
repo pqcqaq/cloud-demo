@@ -1,5 +1,6 @@
 package online.zust.services.demo.service.impl;
 
+import online.zust.common.exception.ServiceException;
 import online.zust.services.EnhanceService;
 import online.zust.services.demo.mapper.DemoMapper;
 import online.zust.services.rpc.entity.Demo;
@@ -17,5 +18,10 @@ public class DemoServiceImpl extends EnhanceService<DemoMapper, Demo> implements
     @Override
     public String hello() {
         return "Hello World!";
+    }
+
+    @Override
+    public String testError() {
+        throw new ServiceException("test error");
     }
 }

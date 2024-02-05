@@ -6,6 +6,7 @@ dubbo:
   application:
     id: ${spring.application.name}-provider
     name: ${dubbo.application.id}
+    serialize-check-status: WARN
   registry:
     address: nacos://${spring.cloud.nacos.discovery.server-addr}
     group: dubbo
@@ -27,8 +28,8 @@ dubbo:
     threadpool: fixed
     loadbalance: roundrobin
     timeout: 5000
-    executes:
-  #    filter: customExceptionFilter,-exception
+    executes: 1000
+    filter: exceptionFilter,-exception
   scan:
     base-packages: online.zust.services.service
   consumer:

@@ -65,6 +65,7 @@
                 <configuration>
                     <!-- 打包时包含引入的外部jar包 -->
                     <includeSystemScope>true</includeSystemScope>
+                    <mainClass>online.zust.services.carbontrade.CarbonTradeServiceApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

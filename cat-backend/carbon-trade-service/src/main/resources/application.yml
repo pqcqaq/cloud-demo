@@ -1,5 +1,5 @@
 server:
-  port: 8988
+  port: 8060
 # 应用名称
 spring:
   application:

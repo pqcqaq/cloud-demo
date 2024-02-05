@@ -126,4 +126,15 @@ public class TestController {
     public ResultData<Boolean> testDubbo() {
         return ResultData.success(demoService.hello());
     }
+
+    /**
+     * 测试dubbo异常
+     *
+     * @return test
+     */
+    @GetMapping("/testDubboError")
+    public ResultData<Boolean> testDubboError() {
+        String msg = demoService.testError();
+        return ResultData.success(msg);
+    }
 }

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="online.zust.services.carbon.mapper.ProductInfoMapper">
 
-    <resultMap id="BaseResultMap" type="online.zust.services.carbon.domain.ProductInfo">
+    <resultMap id="BaseResultMap" type="online.zust.services.carbontrade.domain.ProductInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="type" column="type" jdbcType="INTEGER"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
