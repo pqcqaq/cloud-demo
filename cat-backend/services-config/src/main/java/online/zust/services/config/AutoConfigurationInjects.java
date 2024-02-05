@@ -2,10 +2,12 @@ package online.zust.services.config;
 
 import online.zust.services.exception.GlobalExceptionHandler;
 import online.zust.services.utils.SpringContextUtil;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -13,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 @EnableDiscoveryClient
+@EnableAsync
 public class AutoConfigurationInjects {
     @Bean
     @LoadBalanced

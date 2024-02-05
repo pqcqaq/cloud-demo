@@ -24,6 +24,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!--    rpc客户端    -->
+        <dependency>
+            <groupId>online.zust</groupId>
+            <artifactId>dubbo-rpc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--    服务配置    -->
         <dependency>
             <groupId>online.zust</groupId>

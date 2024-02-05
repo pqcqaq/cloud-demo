@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <writeAnnotations>
+      <writeAnnotation name="org.apache.dubbo.config.annotation.DubboReference" />
+    </writeAnnotations>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -18,6 +23,7 @@
         <option value="$PROJECT_DIR$/cat-backend/demo-service/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/chain-service/pom.xml" />
         <option value="$PROJECT_DIR$/cat-backend/carbon-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cat-backend/dubbo-rpc/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

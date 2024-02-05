@@ -1,0 +1,35 @@
+spring:
+  config:
+    activate:
+      on-profile: dubbo
+dubbo:
+  application:
+    id: ${spring.application.name}-provider
+    name: ${dubbo.application.id}
+  registry:
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}
+    group: dubbo
+    register-mode: instance
+    username: nacos
+    password: nacos
+  metadata-report:
+    address: nacos://${spring.cloud.nacos.discovery.server-addr}
+    group: dubbo
+    username: nacos
+    password: nacos
+  protocol:
+    name: dubbo
+    port: -1
+  config-center:
+    timeout: 8000
+  provider:
+    threads: 20000
+    threadpool: fixed
+    loadbalance: roundrobin
+    timeout: 5000
+    executes:
+  #    filter: customExceptionFilter,-exception
+  scan:
+    base-packages: online.zust.services.service
+  consumer:
+    check: false

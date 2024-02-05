@@ -2,12 +2,13 @@ package online.zust.services.authservice.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import online.zust.common.exception.ServiceException;
+import online.zust.common.utils.JWTUtils;
+import online.zust.services.EnhanceService;
 import online.zust.services.authservice.entity.UserLogin;
 import online.zust.services.authservice.entity.po.User;
 import online.zust.services.authservice.mapper.UserMapper;
 import online.zust.services.authservice.service.UserService;
-import online.zust.common.exception.ServiceException;
-import online.zust.common.utils.JWTUtils;
 import online.zust.services.entity.dto.LoginParams;
 import online.zust.services.entity.dto.RegisterParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ import java.util.Objects;
  * @author qcqcqc
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService, UserDetailsService {
+public class UserServiceImpl extends EnhanceService<UserMapper, User> implements UserService, UserDetailsService {
 
     private final UserMapper userMapper;
 

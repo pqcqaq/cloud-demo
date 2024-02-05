@@ -10,4 +10,4 @@ spring:
     livereload:
       port: 35732
   profiles:
-    include: feign, mysql, nacos, spring, jwt, ribbon
+    include: feign, mysql, nacos, spring, jwt, ribbon, dubbo

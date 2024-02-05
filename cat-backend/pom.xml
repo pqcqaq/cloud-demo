@@ -101,6 +101,7 @@
         <module>services-parent</module>
         <module>common-cloud</module>
         <module>feign-clients</module>
+        <module>dubbo-rpc</module>
     </modules>
 
 </project>

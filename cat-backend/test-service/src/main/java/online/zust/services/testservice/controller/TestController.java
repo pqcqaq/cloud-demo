@@ -8,6 +8,8 @@ import online.zust.services.entity.User;
 import online.zust.services.entity.dto.LoginParams;
 import online.zust.services.entity.dto.RegisterParam;
 import online.zust.services.feignclient.clients.AuthClient;
+import online.zust.services.rpc.service.DemoService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @Autowired
     private AuthClient authClient;
+
+    @DubboReference
+    private DemoService demoService;
 
     /**
      * 测试
@@ -110,5 +115,15 @@ public class TestController {
     @GetMapping("/testJwtHeader")
     public ResultData<User> testJwtHeader() {
         return authClient.testJwtHeader();
+    }
+
+    /**
+     * 测试dubbo
+     *
+     * @return test
+     */
+    @GetMapping("/testDubbo")
+    public ResultData<Boolean> testDubbo() {
+        return ResultData.success(demoService.hello());
     }
 }

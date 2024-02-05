@@ -34,6 +34,7 @@ public class User implements Serializable {
     private String password;
     @TableField(value = "roles", typeHandler = JacksonTypeHandler.class)
     private List<String> roles;
+    private Long companyId;
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDatetimeDeserializer.class)
